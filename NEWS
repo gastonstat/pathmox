@@ -1,0 +1,24 @@
+Version 0.1.5 (2012-11-17)
+------------------------------------------------------------
+
+NEW FEATURES AND FUNCTIONS
+
+* PLSTROIKA has started (restructuring my pls packages)
+
+* All functions have updated documentation
+
+* `plot.treemox` has more graphic parameters to make better plots
+
+* There is a nasty bug in `fix.techmox` that I need to kill
+
+* `plot.bootnodes` is deprecated
+
+* internal functions are exported for developing reasons. Don't use them unless you're me or a super user or a package developer
+
+* Using 'roxygen2' for documentation and literate programming
+
+* folder pathmox-internal is deprecated
+
+BUG FIXES
+
+* Pain-in-the-butt warning message about 'sd() deprecated' has been tackled
