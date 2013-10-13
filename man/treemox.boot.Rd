@@ -68,7 +68,7 @@
  mob_path = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
 
  # blocks of indicators (outer model)
- mob_outer = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
+ mob_blocks = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
  mob_modes = rep("A", 7)
 
  # apply plspm

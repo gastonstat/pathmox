@@ -12,6 +12,7 @@
 #' @param x object of class \code{"bootnodes"}
 #' @param pc integer indicating the number of path coefficient to be plotted
 #' @param \dots Further arguments are ignored
+#' @S3method plot bootnodes
 plot.bootnodes <- function(x, pc = 1, ...)
 {
   # ===================== Inputs =======================
@@ -33,7 +34,7 @@ plot.bootnodes <- function(x, pc = 1, ...)
   # dev.new()
   plot(1:ncol(PC), PC[pc,],  
        xlab = "Nodes", ylab=rownames(PC)[pc], 
-       ylim = c(min.y-.1,max.y+.1), 
+       ylim = c(min.y - 0.1, max.y + 0.1), 
        main = c("Bootstrap Intervals for path coefficient", 
                 rownames(PC)[pc], sep=" "),
        cex.main = 1, xaxt = "n", type = "n")

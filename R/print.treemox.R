@@ -1,4 +1,4 @@
-#'@S3method print treemox
+#' @S3method print treemox
 print.treemox <-
 function(x, ...)
 {

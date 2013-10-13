@@ -81,7 +81,7 @@ function(pls, treemox, X=NULL)
     stop("\n'pls' must be an object of class 'plspm'")
   if (class(treemox) != "treemox")
     stop("\n'treemox' must be an object of class 'treemox'")
-  if (nrow(pls$latents) != treemox$MOX$Size[1]) 
+  if (nrow(pls$scores) != treemox$MOX$Size[1]) 
     stop("\n'pls' and 'treemox' have different number of observations")
   if (!is.null(X)) # if X available
   {
@@ -89,7 +89,7 @@ function(pls, treemox, X=NULL)
     {
       if (!is_not_tabular(X))
         stop("\n'X' must be a numeric matrix or data frame")
-      if (nrow(X) != nrow(pls$latents))
+      if (nrow(X) != nrow(pls$scores))
         stop("\n'pls' and 'X' have different number of rows")
     }
   } else { # if no X
@@ -124,9 +124,9 @@ function(pls, treemox, X=NULL)
   tn.labs <- paste("Node", MOX$Node[term.nodes+1], sep="_")
   lvs <- ncol(IDM)
   obs <- nrow(DT)
-  mvs <- sum(blocks)
-  mvs.names <- names(pls$out.weights)
-  lvs.names <- row.names(IDM)
+  mvs <- pls$model$gens$mvs
+  mvs.names <- pls$model$gens$mvs_names
+  lvs.names <- pls$model$gens$lvs_names
   endo <- rowSums(IDM)
   endo[endo!=0] <- 1
   

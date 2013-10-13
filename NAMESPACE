@@ -1,3 +1,4 @@
+S3method(plot,bootnodes)
 S3method(plot,treemox)
 S3method(plot,treemox.pls)
 S3method(print,bootnodes)

@@ -54,7 +54,7 @@
 #'  mob_path = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
 #'  
 #'  # blocks of indicators (outer model)
-#'  mob_outer = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
+#'  mob_blocks = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
 #'  mob_modes = rep("A", 7)
 #'  
 #'  # apply plspm
@@ -87,9 +87,9 @@ treemox.boot <- function(pls, treemox, X=NULL, br=100)
   # =======================================================
   if (class(pls) != "plspm")
     stop("\n'pls' must be an object of class 'plspm'")
-  if (class(treemox)!="treemox")
+  if (class(treemox) != "treemox")
     stop("\n'treemox' must be an object of class 'treemox'")
-  if (nrow(pls$latents)!=treemox$MOX$Size[1]) 
+  if (nrow(pls$scores) != treemox$MOX$Size[1]) 
     stop("\n'pls' and 'pathmox' have different number of observations")
   if (!is.null(X)) # if X available
   {
@@ -97,9 +97,9 @@ treemox.boot <- function(pls, treemox, X=NULL, br=100)
     {
       if (!is.matrix(X) && !is.data.frame(X))
         stop("\n'X' must be a numeric matrix or data frame.")
-      if (nrow(X)!=nrow(pls$latents))
+      if (nrow(X) != nrow(pls$scores))
         stop("\n'pls' and 'X' have different number of rows.")
-      if (nrow(X)!=pathmox$MOX$Size[1])
+      if (nrow(X) != pathmox$MOX$Size[1])
         stop("\n'X' and 'pathmox' have different number of observations")
     }
   } else { # if no X
@@ -117,6 +117,7 @@ treemox.boot <- function(pls, treemox, X=NULL, br=100)
   # =======================================================  
   IDM <- pls$model$IDM
   blocks <- pls$model$blocks
+  scaled <- pls$model$specs$scaled
 
   # data matrix DT
   if (!is.null(pls$data)) {
@@ -252,7 +253,7 @@ treemox.boot <- function(pls, treemox, X=NULL, br=100)
         next
       }
       Y.boot <- X.boot %*% w.boot[[2]]
-      pathmod <- get_paths(IDM, Y.boot, plsr=FALSE)
+      pathmod <- get_paths(IDM, Y.boot)
       P.boot <- pathmod[[2]]
       PATHS[i,] <- as.vector(P.boot[which(IDM==1)])
       i <- i + 1

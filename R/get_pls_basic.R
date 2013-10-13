@@ -33,6 +33,7 @@ function(DT, path_matrix, blocks, specs)
   outer_weights = weights$w
   LV = get_scores(X, weights$W)
   xloads = cor(X, LV)
+  loadings = rowSums(xloads * weights$ODM)
   
   # ============ Stage 2: Path coefficients and total effects ==========
   inner_results = get_paths(path_matrix, LV)
@@ -46,8 +47,8 @@ function(DT, path_matrix, blocks, specs)
                 blocks = blocks, 
                 specs = specs)
   # output
-  list(out.weights = weights, 
-       loadings = xloads, 
+  list(out.weights = outer_weights, 
+       loadings = loadings, 
        scores = LV,   
        path.coefs = Path, 
        R2 = R2, 

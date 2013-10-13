@@ -53,7 +53,7 @@
 #'  # select manifest variables
 #'  data_mobile = csimobile[,8:33]
 #'  
-#'  # define inner model
+#'  # define path matrix (inner model)
 #'  IMAG = c(0, 0, 0, 0, 0, 0, 0)
 #'  EXPE = c(1, 0, 0, 0, 0, 0, 0)
 #'  QUAL = c(0, 1, 0, 0, 0, 0, 0)
@@ -61,16 +61,18 @@
 #'  SAT = c(1, 1, 1, 1, 0, 0, 0)
 #'  COM = c(0, 0, 0, 0, 1, 0, 0)
 #'  LOY = c(1, 0, 0, 0, 1, 1, 0)
-#'  mob_inner = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
+#'  mob_path = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
 #'  
-#'  # outer model
+#'  # blocks of indicators (outer model)
 #'  mob_outer = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
 #'  mob_modes = rep("A", 7)
 #'  
 #'  # apply plspm
-#'  mob_pls = plspm(data_mobile, mob_inner, mob_outer, mob_modes, scheme="factor", scaled=FALSE)
+#'  mob_pls = plspm(data_mobile, mob_path, mob_blocks, modes = mob_modes, 
+#'                  scheme = "factor", scaled = FALSE)
 #'
-#'  # re-ordering those segmentation variables with ordinal scale (Age and Education)
+#'  # re-ordering those segmentation variables with ordinal scale 
+#'  # (Age and Education)
 #'  csimobile$Education = factor(csimobile$Education, 
 #'      levels=c("basic","highschool","university"),
 #'      ordered=TRUE)

@@ -81,7 +81,7 @@ function(pls, treemox, X=NULL, node, boot.val=FALSE, br=NULL, dataset=FALSE)
     stop("\nAn object of class 'plspm' was expected")
   if (class(treemox) != "treemox")
     stop("\nArgument 'treemox' must be an object of class 'treemox'")
-  if (nrow(pls$latents) != treemox$MOX$Size[1]) 
+  if (nrow(pls$scores) != treemox$MOX$Size[1]) 
     stop("\n'pls' and 'treemox' have different number of observations")
   if (!is.null(X)) # if X available
   {
@@ -89,7 +89,7 @@ function(pls, treemox, X=NULL, node, boot.val=FALSE, br=NULL, dataset=FALSE)
     {
       if (is_not_tabular(X))
         stop("\nparameter 'X' must be a numeric matrix or data frame.")
-      if (nrow(X) != nrow(pls$latents))
+      if (nrow(X) != nrow(pls$scores))
         stop("\n'pls' and 'X' have different number of rows.")
     }
   } else { # if no X
@@ -112,7 +112,7 @@ function(pls, treemox, X=NULL, node, boot.val=FALSE, br=NULL, dataset=FALSE)
   scheme <- pls$model$specs$scheme
   scaled <- pls$model$specs$scaled
   tol <- pls$model$specs$tol
-  iter <- pls$model$specs$maxiter
+  maxiter <- pls$model$specs$maxiter
 
   # data matrix DT
   if (!is.null(pls$data)) {
