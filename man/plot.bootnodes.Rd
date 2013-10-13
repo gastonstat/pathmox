@@ -7,7 +7,7 @@
 \arguments{
   \item{x}{object of class \code{"bootnodes"}}
 
-  \item{pc}{integer value indicating the number of path
+  \item{pc}{integer indicating the number of path
   coefficient to be plotted}
 
   \item{\dots}{Further arguments are ignored}

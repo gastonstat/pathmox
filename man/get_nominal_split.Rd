@@ -5,7 +5,7 @@
   get_nominal_split(v)
 }
 \arguments{
-  \item{v}{containing the nominal categories}
+  \item{v}{vector containing the nominal categories}
 }
 \description{
   Internal function. \code{get_nominal_split} is called by

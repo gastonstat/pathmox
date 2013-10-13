@@ -1,7 +1,8 @@
 \name{pathmox}
 \alias{fix.pathmox}
 \alias{pathmox}
-\title{PATHMOX Approach: Segmentation Trees in Partial Least Squares Path Modeling}
+\title{PATHMOX Approach: Segmentation Trees in
+Partial Least Squares Path Modeling}
 \usage{
   pathmox(pls, EXEV, X = NULL, signif = 0.05, size = 0.1,
     deep = 2, tree = TRUE)
@@ -33,7 +34,7 @@
   An object of class \code{"treemox"}. Basically a list
   with the following results:
 
-  \item{MOX}{Data frame containing the results of the
+  \item{MOX}{Data frame with the results of the
   segmentation tree}
 
   \item{FT}{Data frame containing the results of the F-test
@@ -46,11 +47,11 @@
 }
 \description{
   The function \code{pathmox} calculates a binary
-  segmentation tree following the PATHMOX algorithm. In
-  contrast, \code{fix.pathmox} obtains a supervised PATHMOX
-  tree in the sense of allowing the user to interactively
-  fix the partitions along the construction process of the
-  tree. \cr
+  segmentation tree for PLS Path Models following the
+  PATHMOX algorithm. In contrast, \code{fix.pathmox}
+  obtains a supervised PATHMOX tree in the sense of
+  allowing the user to interactively fix the partitions
+  along the construction process of the tree.
 }
 \details{
   The argument \code{EXEV} must be a data frame containing
@@ -76,7 +77,7 @@
  # select manifest variables
  data_mobile = csimobile[,8:33]
 
- # define inner model
+ # define path matrix (inner model)
  IMAG = c(0, 0, 0, 0, 0, 0, 0)
  EXPE = c(1, 0, 0, 0, 0, 0, 0)
  QUAL = c(0, 1, 0, 0, 0, 0, 0)
@@ -84,16 +85,18 @@
  SAT = c(1, 1, 1, 1, 0, 0, 0)
  COM = c(0, 0, 0, 0, 1, 0, 0)
  LOY = c(1, 0, 0, 0, 1, 1, 0)
- mob_inner = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
+ mob_path = rbind(IMAG, EXPE, QUAL, VAL, SAT, COM, LOY)
 
- # outer model
- mob_outer = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
+ # blocks of indicators (outer model)
+ mob_blocks = list(1:5, 6:9, 10:15, 16:18, 19:21, 22:24, 25:26)
  mob_modes = rep("A", 7)
 
  # apply plspm
- mob_pls = plspm(data_mobile, mob_inner, mob_outer, mob_modes, scheme="factor", scaled=FALSE)
+ mob_pls = plspm(data_mobile, mob_path, mob_blocks, modes = mob_modes,
+                 scheme="factor", scaled=FALSE)
 
- # re-ordering those segmentation variables with ordinal scale (Age and Education)
+ # re-ordering those segmentation variables with ordinal scale
+ # (Age and Education)
  csimobile$Education = factor(csimobile$Education,
      levels=c("basic","highschool","university"),
      ordered=TRUE)
@@ -110,10 +113,10 @@
 }
 \references{
   Sanchez, G. (2009) \emph{PATHMOX Approach: Segmentation
-  Trees in Partial Least Squares Path Modeling.} Doctoral
+  Trees in Partial Least Squares Path Modeling.} PhD
   Dissertation.
 
-  \url{http://www.gastonsanchez.com/thesis-pathmox}
+  \url{http://www.gastonsanchez.com/Pathmox_Approach_Thesis_Gaston_Sanchez.pdf}
 }
 \seealso{
   \code{\link{techmox}}, \code{\link{plot.treemox}},
