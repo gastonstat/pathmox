@@ -1,4 +1,4 @@
-#' @title TECHMOX Algorithm: Segmentation Trees in Partial Least Squares Path Modeling
+#' @title TECHMOX Algorithm: Segmentation Trees in PLS Path Modeling
 #' 
 #' @description
 #' The function \code{techmox} calculates a binary segmentation tree following
@@ -17,8 +17,8 @@
 #' a node). \cr
 #' 
 #' When the object \code{pls} does not contain a data matrix (i.e.
-#' \code{pls$data=NULL}), the user must provide the data matrix or data frame in
-#' \code{X}.
+#' \code{pls$data=NULL}), the user must provide the data matrix or data frame 
+#' in \code{X}.
 #' 
 #' @aliases techmox fix.techmox
 #' @param pls An object of class \code{"plspm"} returned by \code{\link{plspm}}.
@@ -78,7 +78,8 @@
 #'  mob_pls = plspm(data_mobile, mob_path, mob_blocks, modes = mob_modes, 
 #'                  scheme = "factor", scaled = FALSE)
 #'
-#'  # re-ordering those segmentation variables with ordinal scale (Age and Education)
+#'  # re-ordering those segmentation variables with ordinal scale 
+#'  # (Age and Education)
 #'  csimobile$Education = factor(csimobile$Education, 
 #'      levels=c("basic","highschool","university"),
 #'      ordered=TRUE)

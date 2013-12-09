@@ -1,7 +1,7 @@
 \name{techmox}
 \alias{fix.techmox}
 \alias{techmox}
-\title{TECHMOX Algorithm: Segmentation Trees in Partial Least Squares Path Modeling}
+\title{TECHMOX Algorithm: Segmentation Trees in PLS Path Modeling}
 \usage{
   techmox(pls, EXEV, X = NULL, signif = 0.05, size = 0.1,
     deep = 2, tree = TRUE)
@@ -94,7 +94,8 @@
  mob_pls = plspm(data_mobile, mob_path, mob_blocks, modes = mob_modes,
                  scheme = "factor", scaled = FALSE)
 
- # re-ordering those segmentation variables with ordinal scale (Age and Education)
+ # re-ordering those segmentation variables with ordinal scale
+ # (Age and Education)
  csimobile$Education = factor(csimobile$Education,
      levels=c("basic","highschool","university"),
      ordered=TRUE)

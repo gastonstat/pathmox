@@ -2,7 +2,7 @@
 \alias{plot.bootnodes}
 \title{Plot bootstrap results of terminal nodes}
 \usage{
-  plot.bootnodes(x, pc = 1, ...)
+  \method{plot}{bootnodes} (x, pc = 1, ...)
 }
 \arguments{
   \item{x}{object of class \code{"bootnodes"}}
@@ -13,8 +13,7 @@
   \item{\dots}{Further arguments are ignored}
 }
 \description{
-  This function is deprecated Plot method for objects of
-  class \code{"bootnodes"}
+  Plot method for objects of class \code{"bootnodes"}
 
   The function \code{plot.bootnodes} displays the value of
   the selected path coefficient for the root node and the

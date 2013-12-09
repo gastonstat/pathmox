@@ -1,7 +1,6 @@
 #' @title Plot bootstrap results of terminal nodes
 #' 
 #' @description
-#' This function is deprecated
 #' Plot method for objects of class \code{"bootnodes"}
 #' 
 #' The function \code{plot.bootnodes} displays the value of the selected path
@@ -12,6 +11,7 @@
 #' @param x object of class \code{"bootnodes"}
 #' @param pc integer indicating the number of path coefficient to be plotted
 #' @param \dots Further arguments are ignored
+#' @method plot bootnodes
 #' @S3method plot bootnodes
 plot.bootnodes <- function(x, pc = 1, ...)
 {

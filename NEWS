@@ -1,7 +1,7 @@
-Version 0.2.0 (2013-10-14)
+Version 0.2.0 (2013-12-09)
 ------------------------------------------------------------
 
-* New version compatible with plspm version 0.4.0 (non-metric data)
+* New version compatible with plspm versions greater than 0.4.0
 
 
 Version 0.1.5 (2012-11-17)

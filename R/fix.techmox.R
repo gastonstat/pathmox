@@ -202,7 +202,7 @@ function(pls, EXEV, X=NULL, signif=.05, size=.10, deep=2, tree=TRUE)
       } else# segueix
       {
         DT.set <- DT[indivs,]
-        x.pls <- get_pls_basic(DT.set, IDM, blocks, modes, scheme, scaled, tol, iter)
+        x.pls <- get_pls_basic(DT.set, IDM, blocks, pls$model$specs)
         # xexeloa
         spli <- get_fix_xexeloa(x.pls, DT.set, EXEV, type.exev, elemnod, nv, size, "techmox")    
         best <- spli$inner.test$p.val     
