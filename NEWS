@@ -17,7 +17,7 @@ NEW FEATURES AND FUNCTIONS
 
 * There is a nasty bug in `fix.techmox` that I need to kill
 
-* `plot.bootnodes` is deprecated
+* `plot.bootnodes` needs alternative representations
 
 * internal functions are exported for developing reasons. Don't use them unless you're me or a super user or a package developer
 
